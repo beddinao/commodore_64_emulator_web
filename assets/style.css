@@ -156,12 +156,12 @@ body > div > div:nth-child(4) > div:nth-child(4) {
 	align-items: center;
 }
 
-textarea {
-	color: var(--color-2);
+#console {
+	color: var(--color-1);
 	background: var(--background-1);
 	border: 1px solid var(--border-2);
 	width: 30%;
-	font-size: 14px;
+	font-size: 15px;
 }
 
 body > div:nth-child(1) {
@@ -185,7 +185,7 @@ canvas {
 	canvas {
 		width: 100%;
 	}
-	textarea {
+	#console {
 		width: 100%;
 	}
 	

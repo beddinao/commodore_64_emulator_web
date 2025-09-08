@@ -72,6 +72,10 @@
 					print(...args) {
 						if (output_elem) {
 							var text = args.join(' ');
+							if (text.startsWith(":error")) {
+								console.error(text);
+								alert(text);
+							}
 							output_elem.value += text + "\n";
 							output_elem.scrollTop = output_elem.scrollHeight;
 						}
