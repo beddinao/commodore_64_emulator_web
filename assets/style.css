@@ -71,11 +71,15 @@ body > div {
 	row-gap: var(--gap-1);
 }
 
-body > div:nth-child(3) {
+body > div:nth-child(1) {
+	height: auto;
+}
+
+body > div:nth-child(4) {
 	row-gap: 0;
 }
 
-body > div:nth-child(1) {
+body > div:nth-child(2) {
 	max-height: 80vh;
 }
 
@@ -129,7 +133,7 @@ body > div > div:nth-child(3) > button {
 	padding: 4px 10px;
 }
 
-body > div:nth-child(3) > p {
+body > div:nth-child(4) > p {
 	margin-bottom: var(--gap-1);
 }
 
@@ -156,15 +160,18 @@ body > div > div:nth-child(4) > div:nth-child(4) {
 	align-items: center;
 }
 
-#console {
+textarea {
 	color: var(--color-1);
 	background: var(--background-1);
 	border: 1px solid var(--border-2);
-	width: 30%;
 	font-size: 15px;
 }
 
-body > div:nth-child(1) {
+#console {
+	width: 30%;
+}
+
+body > div:nth-child(2) {
 	flex-direction: row;
 	column-gap: var(--gap-1);
 	width: 90%;
@@ -178,7 +185,7 @@ canvas {
 }
 
 @media screen and (max-width: 1300px), screen and (max-height: 900px) {
-	body > div:nth-child(1) {
+	body > div:nth-child(2) {
 		flex-direction: column;
 		width: 100%;
 	}
