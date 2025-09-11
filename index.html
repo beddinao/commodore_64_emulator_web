@@ -10,6 +10,9 @@
 	</head>
 		<body>
 			<div>
+				<textarea id="header_console" rows="0" disabled></textarea>
+			</div>
+			<div>
 				<canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
 				<textarea id="console" rows="16" disabled></textarea>
 			</div>
@@ -64,18 +67,24 @@
 			</div>
 			<script async type="text/javascript">
 				var output_elem = document.getElementById("console");
+				var header_output_elem = document.getElementById("header_console");
 				window.onload = e => {
-					if (output_elem)
-						output_elem.value = "";
+					if (output_elem) output_elem.value = "";
+					if (header_output_elem) header_output_elem.value = "";
 				}
 				var Module = {
 					print(...args) {
-						if (output_elem) {
-							var text = args.join(' ');
-							if (text.startsWith(":error")) {
-								console.error(text);
-								alert(text);
-							}
+						var text = args.join(' ');
+						if (text.startsWith(":error")) {
+							console.error(text);
+							alert(text);
+						}
+						else if (text.startsWith("*") && header_output_elem) {
+							text = text.slice(1) + "\n";
+							header_output_elem.value += text;
+							if (!text.includes("64")) header_output_elem.rows += 1;
+						}
+						else if (output_elem) {
 							output_elem.value += text + "\n";
 							output_elem.scrollTop = output_elem.scrollHeight;
 						}
